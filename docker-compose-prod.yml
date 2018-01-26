@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  # This Node container is for staging/production
+  # The development environment is supposed to be run as local non-dockerized node project
+  node:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+      - redis
+    environment:
+      - NODE_ENV=staging
+
+  # This MariaDB container can be used as development database
+  mariadb:
+    image: "mariadb"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      # Change this if deploying to staging or production
+      - MYSQL_DATABASE=sb2_staging
+
+  redis:
+    image: "redis"

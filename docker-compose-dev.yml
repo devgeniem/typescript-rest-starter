@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  # This MariaDB container can be used as development database
+  mariadb:
+    image: "mariadb"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=sb2_dev
+    ports:
+      - '3306:3306'
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
