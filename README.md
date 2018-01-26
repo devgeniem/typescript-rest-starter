@@ -4,7 +4,7 @@ RESt api boilerplate with TypeScript
 Motivation of this repository is to give you a sane and simple starting point for your own
 Rest API or generic what ever server.  
 
-ResTs is not a framework. IT's a collection of useful modules and relatively short piece of server code with controller classes that you can modify and grow to your needs.
+ResTs is not a framework, but a collection of useful modules and relatively short piece of server code with controller classes that you can modify and grow to your needs.
 
 Master branch of this repository is intented to be cloned as starting point for your own
 project. So it contains only one simple route and tests for it, nothing more.
