@@ -14,6 +14,8 @@ import api from './api/api';
 import configJson from './config.json';
 import * as Redis from 'connect-redis';
 
+import * as path from 'path';
+
 const environment = process.env.NODE_ENV || 'development';
 
 const app = express();
@@ -54,9 +56,10 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-
 // add api to paths
 app.use('/', api({ knex, config: configJson }));
+
+app.use('/uploads', express.static('uploads'));
 
 console.log('Running in :', environment);
 server.listen(process.env.PORT || configJson.port, () => {

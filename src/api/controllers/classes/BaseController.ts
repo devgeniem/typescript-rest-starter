@@ -22,7 +22,7 @@ export default abstract class BaseController implements Controller {
     this.session = this.req.session;
   }
   // hook for authorization check, return false if not authorized
-  authorizationCheck () {
+  async authorizationCheck () {
     return true;
   }
   // parameter collection hook
@@ -38,23 +38,32 @@ export default abstract class BaseController implements Controller {
   // response hook
   abstract response (): void;
 
+  // hook for generic pre response
+  preResponse () { }
+
+  // hook for generic after response
+  afterResponse () { }
+
   async handle () {
     await this.getSession();
     await this.reqParams();
+    await this.preResponse();
     if (!await this.authorizationCheck()) {
       return this.res.status(401).json({ error: { message: 'unauthorized', code: 401 } });
     }
     try {
       const result = await this.response();
-      return this.res.status(200).json(result);
+      this.res.status(200).json(result);
     } catch (error) {
       if (error instanceof ControllerError) {
-        return this.res.status(error.statusCode || 500)
+        this.res.status(error.statusCode || 500)
           .json({ error: { message: error.message, code: error.code } });
       } else {
         // catch only error types that are handled, let others fall thru
         throw error;
       }
     }
+    await this.afterResponse();
+    return;
   }
 }
