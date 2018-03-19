@@ -14,6 +14,7 @@ For examples see other branches in this repository.
 Modules used:
 
 - Typescript [TSC](http://www.typescriptlang.org/)
+- Express [express](https://expressjs.com/)
 - CORS support [cors](https://github.com/troygoode/node-cors)
 - Body Parsing [body-parser](https://github.com/expressjs/body-parser)
 - Multipart file uploads [multer](https://github.com/expressjs/multer)
