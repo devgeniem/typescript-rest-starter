@@ -2,20 +2,11 @@
   "name": "SilverBullet2",
   "version": "0.4.0",
   "description": "rest api boilerplate with typescript",
-  "keywords": [
-    "express",
-    "sql",
-    "knex",
-    "typescript",
-    "objection",
-    "rest",
-    "api",
-    "boilerplate"
-  ],
+  "keywords": [ "express", "sql", "knex", "typescript", "objection", "rest", "api", "boilerplate" ],
   "main": "dist/server",
   "scripts": {
     "postinstall": "node init.js",
-    "dev": "tsc ; node dist/checkServer.js && node ./node_modules/tsc-watch/tsc-watch.js --onSuccess 'node dist/server.js'",
+    "dev": "tsc ; node ./node_modules/tsc-watch/tsc-watch.js --onSuccess 'node dist/server.js'",
     "build": "tsc",
     "clean": "rm -rf dist",
     "start": "node dist/server",
