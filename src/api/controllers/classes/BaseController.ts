@@ -3,7 +3,7 @@
 */
 
 import { merge } from 'ramda';
-import { Router, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { Controller, ControllerError, ajv } from './Controller';
 
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
