@@ -49,7 +49,7 @@ export default abstract class BaseController implements Controller {
       delete this.req.body;
     }
     if (this.req.files) this.files = this.req.files;
-    return this;
+    return this.params;
   }
   // validation hook
   async validateParams() {
