@@ -2,7 +2,16 @@
   "name": "SilverBullet2",
   "version": "0.4.0",
   "description": "rest api boilerplate with typescript",
-  "keywords": [ "express", "sql", "knex", "typescript", "objection", "rest", "api", "boilerplate" ],
+  "keywords": [
+    "express",
+    "sql",
+    "knex",
+    "typescript",
+    "objection",
+    "rest",
+    "api",
+    "boilerplate"
+  ],
   "main": "dist/server",
   "scripts": {
     "postinstall": "node init.js",

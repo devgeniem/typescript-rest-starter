@@ -1,42 +1,34 @@
 import { BaseController, ControllerError } from './classes';
 import { TodoModel } from '../models/TodoModel';
 
-export class TodoController extends BaseController {
-  static routes = [ 'GET /todo', 'POST /todo' ];
-
-
+export class GetTodo extends BaseController {
+  static routes = [ 'GET /todo' ];
   async response() {
-    const method = this.req.method;
-    console.log(method);
-    switch (method) {
-      case 'GET': 
-        return await this.handleGet();
-      case 'POST': 
-        return await this.handlePost();
-    }
-  }
-
-  async handleGet() {
     try {
       const res = await TodoModel.query();
       return res;
     } catch (error) {
       throw new ControllerError('nothing found');
     }
-    
   }
-  async handlePost() {
+}
+export class TodoController extends BaseController {
+  static routes = [ 'POST /todo' ];
+  static paramSchema = { ...TodoModel.jsonSchema, required: [ 'text' ] };
+  async response() {
     const payload = this.params;
-    console.log('payload', payload);
+    let result;
     try {
-      await TodoModel
-      .query()
-      .insert(payload);
-      return 'ok';  
-    } catch (error) {
-      console.log(error);
-      return 'not ok';
+      result = await TodoModel.query().insert(payload);
+    } catch (err) {
+      console.error(err);
+      result = err;
     }
-    
+    return {
+      payload,
+      paramSchema: this.constructor['paramSchema'],
+      modelSchema: TodoModel.jsonSchema,
+      result
+    };
   }
 }

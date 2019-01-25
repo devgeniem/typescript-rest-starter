@@ -1,5 +1,5 @@
 import { Model } from 'objection';
-import  { addSchema } from 'objection-ts-schema';
+import { addSchema } from 'objection-ts-schema';
 
 export class TodoModel extends Model {
   static tableName = 'todo';
