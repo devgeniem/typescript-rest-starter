@@ -1,3 +1,4 @@
 // export your available controllers here
 export * from './Version';
 export * from './Tests';
+export * from './TodoController';

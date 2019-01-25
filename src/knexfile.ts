@@ -11,11 +11,11 @@ const config = {
     },
     migrations: {
       directory: '../migrations',
-      extensions: ['.ts'],
+      extensions: [ '.ts' ],
       stub: '../migrationStub.ts',
     },
     dbManager: {
-      collate: ['fi_FI.UTF-8', 'utf8_swedish_ci'],
+      collate: [ 'fi_FI.UTF-8', 'utf8_swedish_ci' ],
       superUser: 'root',
       superPassword: '',
     },
@@ -34,11 +34,11 @@ const config = {
     },
     migrations: {
       directory: '../migrations',
-      extensions: ['.ts'],
+      extensions: [ '.ts' ],
       stub: '../migrationStub.ts',
     },
     dbManager: {
-      collate: ['fi_FI.UTF-8', 'utf8_swedish_ci'],
+      collate: [ 'fi_FI.UTF-8', 'utf8_swedish_ci' ],
       superUser: 'root',
       superPassword: '',
     },
@@ -57,16 +57,14 @@ const config = {
     },
     migrations: {
       directory: '../migrations',
-      extensions: ['.ts'],
+      extensions: [ '.ts' ],
       stub: '../migrationStub.ts',
     },
     dbManager: {
-      collate: ['fi_FI.UTF-8', 'utf8_swedish_ci'],
+      collate: [ 'fi_FI.UTF-8', 'utf8_swedish_ci' ],
       superUser: 'root',
       superPassword: '',
     },
   },
 };
 module.exports = config;
-export default config;
-
